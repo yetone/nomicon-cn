@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>IntoIter - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="0.简介.html">简介</a></li><li><a href="1.初识安全与非安全代码.html"><strong aria-hidden="true">1.</strong> 初识安全与非安全代码</a></li><li><ol class="section"><li><a href="1.1.安全与非安全代码的交互方式.html"><strong aria-hidden="true">1.1.</strong> 安全与非安全代码的交互方式</a></li><li><a href="1.2.非安全Rust能做什么.html"><strong aria-hidden="true">1.2.</strong> 非安全Rust能做什么</a></li><li><a href="1.3.编写非安全代码.html"><strong aria-hidden="true">1.3.</strong> 编写非安全代码</a></li></ol></li><li><a href="2.数据布局.html"><strong aria-hidden="true">2.</strong> 数据布局</a></li><li><ol class="section"><li><a href="2.1.repr(Rust).html"><strong aria-hidden="true">2.1.</strong> repr(Rust)</a></li><li><a href="2.2.类型中的奇行种.html"><strong aria-hidden="true">2.2.</strong> 类型中的奇行种</a></li><li><a href="2.3.其他repr.html"><strong aria-hidden="true">2.3.</strong> 其他repr</a></li></ol></li><li><a href="3.所有权.html"><strong aria-hidden="true">3.</strong> 所有权</a></li><li><ol class="section"><li><a href="3.1.引用.html"><strong aria-hidden="true">3.1.</strong> 引用</a></li><li><a href="3.2.别名.html"><strong aria-hidden="true">3.2.</strong> 别名</a></li><li><a href="3.3.生命周期.html"><strong aria-hidden="true">3.3.</strong> 生命周期</a></li><li><a href="3.4.生命周期的局限.html"><strong aria-hidden="true">3.4.</strong> 生命周期的局限</a></li><li><a href="3.5.省略生命周期.html"><strong aria-hidden="true">3.5.</strong> 省略生命周期</a></li><li><a href="3.6.无界生命周期.html"><strong aria-hidden="true">3.6.</strong> 无界生命周期</a></li><li><a href="3.7.高阶trait边界.html"><strong aria-hidden="true">3.7.</strong> 高阶trait边界</a></li><li><a href="3.8.子类型和变性.html"><strong aria-hidden="true">3.8.</strong> 子类型和变性</a></li><li><a href="3.9.Drop检查.html"><strong aria-hidden="true">3.9.</strong> Drop检查</a></li><li><a href="3.10.PhantomData（幽灵数据）.html"><strong aria-hidden="true">3.10.</strong> PhantomData（幽灵数据）</a></li><li><a href="3.11.分解借用.html"><strong aria-hidden="true">3.11.</strong> 分解借用</a></li></ol></li><li><a href="4.类型转换.html"><strong aria-hidden="true">4.</strong> 类型转换</a></li><li><ol class="section"><li><a href="4.1.强制类型转换.html"><strong aria-hidden="true">4.1.</strong> 强制类型转换</a></li><li><a href="4.2.点操作符.html"><strong aria-hidden="true">4.2.</strong> 点操作符</a></li><li><a href="4.3.显式类型转换.html"><strong aria-hidden="true">4.3.</strong> 显式类型转换</a></li><li><a href="4.4.变形.html"><strong aria-hidden="true">4.4.</strong> 变形</a></li></ol></li><li><a href="5.未初始化内存.html"><strong aria-hidden="true">5.</strong> 未初始化内存</a></li><li><ol class="section"><li><a href="5.1.安全方式.html"><strong aria-hidden="true">5.1.</strong> 安全方式</a></li><li><a href="5.2.Drop标志.html"><strong aria-hidden="true">5.2.</strong> Drop标志</a></li><li><a href="5.3.非安全方式.html"><strong aria-hidden="true">5.3.</strong> 非安全方式</a></li></ol></li><li><a href="6.基于所有权的资源管理.html"><strong aria-hidden="true">6.</strong> 基于所有权的资源管理</a></li><li><ol class="section"><li><a href="6.1.构造函数.html"><strong aria-hidden="true">6.1.</strong> 构造函数</a></li><li><a href="6.2.析构函数.html"><strong aria-hidden="true">6.2.</strong> 析构函数</a></li><li><a href="6.3.泄露.html"><strong aria-hidden="true">6.3.</strong> 泄露</a></li></ol></li><li><a href="7.展开.html"><strong aria-hidden="true">7.</strong> 展开</a></li><li><ol class="section"><li><a href="7.1.异常安全性.html"><strong aria-hidden="true">7.1.</strong> 异常安全性</a></li><li><a href="7.2.污染.html"><strong aria-hidden="true">7.2.</strong> 污染</a></li></ol></li><li><a href="8.并发.html"><strong aria-hidden="true">8.</strong> 并发</a></li><li><ol class="section"><li><a href="8.1.竞争.html"><strong aria-hidden="true">8.1.</strong> 竞争</a></li><li><a href="8.2.Send和Sync.html"><strong aria-hidden="true">8.2.</strong> Send和Sync</a></li><li><a href="8.3.原子操作.html"><strong aria-hidden="true">8.3.</strong> 原子操作</a></li></ol></li><li><a href="9.实现Vec.html"><strong aria-hidden="true">9.</strong> 实现Vec</a></li><li><ol class="section"><li><a href="9.1.布局.html"><strong aria-hidden="true">9.1.</strong> 布局</a></li><li><a href="9.2.内存分配.html"><strong aria-hidden="true">9.2.</strong> 内存分配</a></li><li><a href="9.3.push和pop.html"><strong aria-hidden="true">9.3.</strong> push和pop</a></li><li><a href="9.4.回收资源.html"><strong aria-hidden="true">9.4.</strong> 回收资源</a></li><li><a href="9.5.DeRef.html"><strong aria-hidden="true">9.5.</strong> DeRef</a></li><li><a href="9.6.插入和删除.html"><strong aria-hidden="true">9.6.</strong> 插入和删除</a></li><li><a href="9.7.IntoIter.html" class="active"><strong aria-hidden="true">9.7.</strong> IntoIter</a></li><li><a href="9.8.RawVec.html"><strong aria-hidden="true">9.8.</strong> RawVec</a></li><li><a href="9.9.Drain.html"><strong aria-hidden="true">9.9.</strong> Drain</a></li><li><a href="9.10.处理零尺寸类型.html"><strong aria-hidden="true">9.10.</strong> 处理零尺寸类型</a></li><li><a href="9.11.最终代码.html"><strong aria-hidden="true">9.11.</strong> 最终代码</a></li></ol></li><li><a href="10.实现Arc和Mutex.html"><strong aria-hidden="true">10.</strong> 实现Arc和Mutex</a></li><li><a href="11.FFI.html"><strong aria-hidden="true">11.</strong> FFI</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>原文链接：<a href="https://doc.rust-lang.org/nomicon/vec-into-iter.html">https://doc.rust-lang.org/nomicon/vec-into-iter.html</a></p>
+<a class="header" href="#intoiter" id="intoiter"><h1>IntoIter</h1></a>
+<p>我们继续编写迭代器。<code>iter</code>和<code>iter_mut</code>其实已经写过了，感谢神奇的DeRef。但是还有两个有意思的迭代器是Vec提供的而slice没有的：<code>into_iter</code>和<code>drain</code>。</p>
+<p>IntoIter以值而不是引用的形式访问Vec，同时也是以值的形式返回元素。为了实现这一点，IntoIter需要获取Vec的分配空间的所有权。</p>
+<p>IntoIter也需要DoubleEnd，即从两个方向读数据。从尾部读数据可以通过调用<code>pop</code>实现，但是从头读数据就困难了。我们可以调用<code>remove(0)</code>，但是它的开销太大了。我们选择直接使用<code>ptr::read</code>从Vec的两端拷贝数据，而完全不去改变缓存。</p>
+<p>我们要用一个典型的C访问数组的方式来实现这一点。我们先创建两个指针，一个指向数组的开头，另一个指向结尾后面的那个元素。如果我们需要一端的元素，我们就从那一端指针指向的位置处读出值，然后把指针移动一位。当两个指针相等时，就说明迭代完成了。</p>
+<p>注意，<code>next</code>和<code>next_back</code>中的读和offset的顺序是相反的。对于<code>next_back</code>，指针总是指向它下一次要读的元素的后面，而<code>next</code>的指针总是指向它下一次要读的元素。为什么要这样呢？考虑一下只剩一个元素还未被读取的情况。</p>
+<p>这时的数组像这样：</p>
+<pre><code>          S  E
+[X, X, X, O, X, X, X]
+</code></pre>
+<p>如果E直接指向它下一次要读的元素，我们就无法把上面的情况和所有元素都读过了的情况区分开了。</p>
+<p>我们还需要保存Vec的分配空间的信息，虽然在迭代过程中我们并不关心它，但我们在IntoIter被drop的时候需要这些信息来释放空间。</p>
+<p>所以我们要用下面这个结构体：</p>
+<pre><code class="language-Rust">struct IntoIter&lt;T&gt; {
+    buf: Unique&lt;T&gt;,
+    cap: usize,
+    start: *const T,
+    end: *const T,
+}
+</code></pre>
+<p>这是初始化的代码：</p>
+<pre><code class="language-Rust">impl&lt;T&gt; Vec&lt;T&gt; {
+    fn into_iter(self) -&gt; IntoIter&lt;T&gt; {
+        // 因为Vec是Drop，不能销毁它
+        let ptr = self.ptr;
+        let cap = self.cap;
+        let len = self.len;
+
+        // 确保Vec不会被drop，因为那样会释放内存空间
+        mem::forget(self);
+
+        unsafe {
+            IntoIter {
+                buf: ptr,
+                cap: cap,
+                start: *ptr,
+                end: if cap == 0 {
+                    // 没有分配空间，不能计算指针偏移量
+                    *ptr
+                } else {
+                    ptr.offset(len as isize)
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>这是前向迭代的代码：</p>
+<pre><code class="language-Rust">impl&lt;T&gt; Iterator for IntoIter&lt;T&gt; {
+    type Item = T;
+    fn next(&amp;mut self) -&gt; Option&lt;T&gt; {
+        if self.start == self.end {
+            None
+        } else {
+            unsafe {
+                let result = ptr::read(self.start);
+                self.start = self.start.offset(1);
+                Some(result)
+            }
+        }
+    }
+
+    fn size_hint(&amp;self) -&gt; (usize, Option&lt;usize&gt;) {
+        let len = (self.end as usize - self.start as usize)
+                  / mem::size_of::&lt;T&gt;();
+        (len, Some(len))
+    }
+}
+</code></pre>
+<p>这是逆向迭代的代码：</p>
+<pre><code class="language-Rust">impl&lt;T&gt; DoubleEndedIterator for IntoIter&lt;T&gt; {
+    fn next_back(&amp;mut self) -&gt; Option&lt;T&gt; {
+        if self.start == self.end {
+            None
+        } else {
+            unsafe {
+                self.end = self.end.offset(-1);
+                Some(ptr::read(self.end))
+            }
+        }
+    }
+}
+</code></pre>
+<p>因为IntoIter获得了分配空间的所有权，它需要实现Drop来释放空间。同时Drop也要销毁所有它拥有但是没有读取到的元素。</p>
+<pre><code class="language-Rust">impl&lt;T&gt; Drop for IntoIter&lt;T&gt; {
+    fn drop(&amp;mut self) {
+        if self.cap != 0 {
+            // drop剩下的元素
+            for _ in &amp;mut *self {}
+
+            let align = mem::align_of::&lt;T&gt;();
+            let elem_size = mem::size_of::&lt;T&gt;();
+            let num_bytes = elem_size * self.cap;
+            unsafe {
+                heap::deallocate(self.buf.as_ptr() as *mut _, num_bytes, align);
+            }
+        }
+    }
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="9.6.插入和删除.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="9.8.RawVec.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="9.6.插入和删除.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="9.8.RawVec.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

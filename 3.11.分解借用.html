@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>分解借用 - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="0.简介.html">简介</a></li><li><a href="1.初识安全与非安全代码.html"><strong aria-hidden="true">1.</strong> 初识安全与非安全代码</a></li><li><ol class="section"><li><a href="1.1.安全与非安全代码的交互方式.html"><strong aria-hidden="true">1.1.</strong> 安全与非安全代码的交互方式</a></li><li><a href="1.2.非安全Rust能做什么.html"><strong aria-hidden="true">1.2.</strong> 非安全Rust能做什么</a></li><li><a href="1.3.编写非安全代码.html"><strong aria-hidden="true">1.3.</strong> 编写非安全代码</a></li></ol></li><li><a href="2.数据布局.html"><strong aria-hidden="true">2.</strong> 数据布局</a></li><li><ol class="section"><li><a href="2.1.repr(Rust).html"><strong aria-hidden="true">2.1.</strong> repr(Rust)</a></li><li><a href="2.2.类型中的奇行种.html"><strong aria-hidden="true">2.2.</strong> 类型中的奇行种</a></li><li><a href="2.3.其他repr.html"><strong aria-hidden="true">2.3.</strong> 其他repr</a></li></ol></li><li><a href="3.所有权.html"><strong aria-hidden="true">3.</strong> 所有权</a></li><li><ol class="section"><li><a href="3.1.引用.html"><strong aria-hidden="true">3.1.</strong> 引用</a></li><li><a href="3.2.别名.html"><strong aria-hidden="true">3.2.</strong> 别名</a></li><li><a href="3.3.生命周期.html"><strong aria-hidden="true">3.3.</strong> 生命周期</a></li><li><a href="3.4.生命周期的局限.html"><strong aria-hidden="true">3.4.</strong> 生命周期的局限</a></li><li><a href="3.5.省略生命周期.html"><strong aria-hidden="true">3.5.</strong> 省略生命周期</a></li><li><a href="3.6.无界生命周期.html"><strong aria-hidden="true">3.6.</strong> 无界生命周期</a></li><li><a href="3.7.高阶trait边界.html"><strong aria-hidden="true">3.7.</strong> 高阶trait边界</a></li><li><a href="3.8.子类型和变性.html"><strong aria-hidden="true">3.8.</strong> 子类型和变性</a></li><li><a href="3.9.Drop检查.html"><strong aria-hidden="true">3.9.</strong> Drop检查</a></li><li><a href="3.10.PhantomData（幽灵数据）.html"><strong aria-hidden="true">3.10.</strong> PhantomData（幽灵数据）</a></li><li><a href="3.11.分解借用.html" class="active"><strong aria-hidden="true">3.11.</strong> 分解借用</a></li></ol></li><li><a href="4.类型转换.html"><strong aria-hidden="true">4.</strong> 类型转换</a></li><li><ol class="section"><li><a href="4.1.强制类型转换.html"><strong aria-hidden="true">4.1.</strong> 强制类型转换</a></li><li><a href="4.2.点操作符.html"><strong aria-hidden="true">4.2.</strong> 点操作符</a></li><li><a href="4.3.显式类型转换.html"><strong aria-hidden="true">4.3.</strong> 显式类型转换</a></li><li><a href="4.4.变形.html"><strong aria-hidden="true">4.4.</strong> 变形</a></li></ol></li><li><a href="5.未初始化内存.html"><strong aria-hidden="true">5.</strong> 未初始化内存</a></li><li><ol class="section"><li><a href="5.1.安全方式.html"><strong aria-hidden="true">5.1.</strong> 安全方式</a></li><li><a href="5.2.Drop标志.html"><strong aria-hidden="true">5.2.</strong> Drop标志</a></li><li><a href="5.3.非安全方式.html"><strong aria-hidden="true">5.3.</strong> 非安全方式</a></li></ol></li><li><a href="6.基于所有权的资源管理.html"><strong aria-hidden="true">6.</strong> 基于所有权的资源管理</a></li><li><ol class="section"><li><a href="6.1.构造函数.html"><strong aria-hidden="true">6.1.</strong> 构造函数</a></li><li><a href="6.2.析构函数.html"><strong aria-hidden="true">6.2.</strong> 析构函数</a></li><li><a href="6.3.泄露.html"><strong aria-hidden="true">6.3.</strong> 泄露</a></li></ol></li><li><a href="7.展开.html"><strong aria-hidden="true">7.</strong> 展开</a></li><li><ol class="section"><li><a href="7.1.异常安全性.html"><strong aria-hidden="true">7.1.</strong> 异常安全性</a></li><li><a href="7.2.污染.html"><strong aria-hidden="true">7.2.</strong> 污染</a></li></ol></li><li><a href="8.并发.html"><strong aria-hidden="true">8.</strong> 并发</a></li><li><ol class="section"><li><a href="8.1.竞争.html"><strong aria-hidden="true">8.1.</strong> 竞争</a></li><li><a href="8.2.Send和Sync.html"><strong aria-hidden="true">8.2.</strong> Send和Sync</a></li><li><a href="8.3.原子操作.html"><strong aria-hidden="true">8.3.</strong> 原子操作</a></li></ol></li><li><a href="9.实现Vec.html"><strong aria-hidden="true">9.</strong> 实现Vec</a></li><li><ol class="section"><li><a href="9.1.布局.html"><strong aria-hidden="true">9.1.</strong> 布局</a></li><li><a href="9.2.内存分配.html"><strong aria-hidden="true">9.2.</strong> 内存分配</a></li><li><a href="9.3.push和pop.html"><strong aria-hidden="true">9.3.</strong> push和pop</a></li><li><a href="9.4.回收资源.html"><strong aria-hidden="true">9.4.</strong> 回收资源</a></li><li><a href="9.5.DeRef.html"><strong aria-hidden="true">9.5.</strong> DeRef</a></li><li><a href="9.6.插入和删除.html"><strong aria-hidden="true">9.6.</strong> 插入和删除</a></li><li><a href="9.7.IntoIter.html"><strong aria-hidden="true">9.7.</strong> IntoIter</a></li><li><a href="9.8.RawVec.html"><strong aria-hidden="true">9.8.</strong> RawVec</a></li><li><a href="9.9.Drain.html"><strong aria-hidden="true">9.9.</strong> Drain</a></li><li><a href="9.10.处理零尺寸类型.html"><strong aria-hidden="true">9.10.</strong> 处理零尺寸类型</a></li><li><a href="9.11.最终代码.html"><strong aria-hidden="true">9.11.</strong> 最终代码</a></li></ol></li><li><a href="10.实现Arc和Mutex.html"><strong aria-hidden="true">10.</strong> 实现Arc和Mutex</a></li><li><a href="11.FFI.html"><strong aria-hidden="true">11.</strong> FFI</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>原文链接：<a href="https://doc.rust-lang.org/nomicon/borrow-splitting.html">https://doc.rust-lang.org/nomicon/borrow-splitting.html</a></p>
+<a class="header" href="#分解借用" id="分解借用"><h1>分解借用</h1></a>
+<p>可变引用的Mutex属性在处理复合类型时能力非常有限。借用检查器只能理解一些简单的东西，而且极易失败。他对结构体还算是充分了解，知道结构体的成员可能被分别借用。所以这段代码现在可以正常工作：</p>
+<pre><code class="language-Rust">struct Foo {
+    a: i32,
+    b: i32,
+    c: i32,
+}
+
+let mut x = Foo {a: 0, b: 0, c: 0};
+let a = &amp;mut x.a;
+let b = &amp;mut x.b;
+let c = &amp;x.c;
+*b += 1;
+let c2 = &amp;x.c;
+*a += 10;
+println!(&quot;{} {} {} {}&quot;, a, b, c, c2);
+</code></pre>
+<p>但是，借用检查器对于数组和slice的理解却是一团浆糊，所以这段代码无法通过检查：</p>
+<pre><code class="language-Rust">let mut x = [1, 2, 3];
+let a = &amp;mut x[0];
+let b = &amp;mut x[1];
+println!(&quot;{} {}&quot;, a, b);
+</code></pre>
+<pre><code>&lt;anon&gt;:4:14: 4:18 error: cannot borrow `x[..]` as mutable more than once at a time
+&lt;anon&gt;:4 let b = &amp;mut x[1];
+                      ^~~~
+&lt;anon&gt;:3:14: 3:18 note: previous borrow of `x[..]` occurs here; the mutable borrow prevents subsequent moves, borrows, or modification of `x[..]` until the borrow ends
+&lt;anon&gt;:3 let a = &amp;mut x[0];
+                      ^~~~
+&lt;anon&gt;:6:2: 6:2 note: previous borrow ends here
+&lt;anon&gt;:1 fn main() {
+&lt;anon&gt;:2 let mut x = [1, 2, 3];
+&lt;anon&gt;:3 let a = &amp;mut x[0];
+&lt;anon&gt;:4 let b = &amp;mut x[1];
+&lt;anon&gt;:5 println!(&quot;{} {}&quot;, a, b);
+&lt;anon&gt;:6 }
+         ^
+error: aborting due to 2 previous errors
+</code></pre>
+<p>借用检查器连这个简单的场景都理解不了，那它更不可能理解一些通用容器类型了，比如说树，尤其是出现不同的键对应相同的值的时候。</p>
+<p>为了能“教育”借用检查器我们的所作所为是正确的，我们还是要使用非安全代码。比如，可变slice暴露了一个<code>split_at_mut</code>的方法，它接收一个slice然后返回两个可变slice。一个包括索引值左边所有的值，另一个包含右边所有的值。我们知道这个方法是安全的，因为两个slice没有重叠部分，也就不会出现别名问题。但是它的实现还是要涉及到非安全的内容：</p>
+<pre><code class="language-Rust">fn split_at_mut(&amp;mut self, mid: usize) -&gt; (&amp;mut [T], &amp;mut [T]) {
+    let len = self.len();
+    let ptr = self.as_mut_ptr();
+    assert!(mid &lt;= len);
+    unsafe {
+        (from_raw_parts_mut(ptr, mid)),
+         from_raw_parts_mut(ptr.offset(mid as isize), len - mid))
+    }
+}
+</code></pre>
+<p>这有一点难懂。为了避免两个<code>&amp;mut</code>指向相同的值，我们通过裸指针显式创建了两个全新的slice。</p>
+<p>不过迭代器产生可变引用的方法更加难懂。迭代器trait的定义如下：</p>
+<pre><code class="language-Rust">trait Iterator {
+    typr Item;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;;
+}
+</code></pre>
+<p>这份定义里，<code>Self::Item</code>与<code>slef</code>没有直接关系。也就是说我们可以连续调用<code>next</code>很多次，并且同时保存着所有的结果。对于值的迭代器这么做完全可以，完全符合语义。对于共享引用这么做也没什么问题，因为允许任意过个共享引用指向同一个值（当然迭代器本身需要是独立于被共享内容的对象）。</p>
+<p>但是可变引用就麻烦了。乍一看，可变引用完全不适用这个API，因为那会产生多个指向相同对象的可变引用。</p>
+<p>可实际上它能够正常工作，这是因为迭代器是一个一次性对象。<code>IterMut</code>生成的东西最多只会生成一次，所以实际上我们没有生成多个指向相同数据的可变指针。</p>
+<p>更不可思议的是，可变迭代器对于许多类型的实现甚至不需要非安全代码！</p>
+<p>例如，下面是单向列表的代码：</p>
+<pre><code class="language-Rust">type Link&lt;T&gt; = Option&lt;Box&lt;Node&lt;T&gt;&gt;&gt;;
+
+struct Node&lt;T&gt; {
+    elem: T,
+    next: Link&lt;T&gt;,
+}
+
+pub struct LinkedList&lt;T&gt; {
+    head: Link&lt;T&gt;,
+}
+
+pub struct IterMut&lt;'a, T: 'a&gt;(Option&lt;&amp;'a mut Node&lt;T&gt;&gt;);
+
+impl&lt;T&gt; LinkedList&lt;T&gt; {
+    fn iter_mut(&amp;mut self) -&gt; IterMut&lt;T&gt; {
+        IterMut(self.head.as_mut().map(|node| &amp;mut **node))
+    }
+}
+
+impl&lt;'a, T&gt; Iterator for IterMut&lt;'a, T&gt; {
+    type Item = &amp;'a mut T;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        self.0.take().map(|node| {
+            self.0 = node.next.as_mut().map(|node| &amp;mut **node);
+            &amp;mut node.elem
+        })
+    }
+}
+</code></pre>
+<p>这是可变slice：</p>
+<pre><code class="language-Rust">use std::mem;
+
+pub struct IterMut&lt;'a, T: 'a&gt;(&amp;'a mut[T]);
+
+impl&lt;'a, T&gt; Iterator for IterMut&lt;'a, T&gt; {
+    type Item = &amp;'a mut T;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let slice = mem::replace(&amp;mut self.0, &amp;mut []);
+        if slice.is_empty() { return None; }
+
+        let (l, r) = slice.split_at_mut(1);
+        self.0 = r;
+        l.get_mut(0)
+    }
+}
+
+impl&lt;'a, T&gt; DoubleEndedIterator for IterMut&lt;'a, T&gt; {
+    fn next_back(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        let slice = mem::replace(&amp;mut self.0, &amp;mut []);
+        if slice.is_empty() { return None; }
+
+        let new_len = slice.len() - 1;
+        let (l, r) = slice.split_at_mut(new_len);
+        self.0 = l;
+        r.get_mut(0)
+    }
+}
+</code></pre>
+<p>还有二叉树：</p>
+<pre><code class="language-Rust">use std::collections::VecDeque;
+
+type Link&lt;T&gt; = Option&lt;Box&lt;Node&lt;T&gt;&gt;&gt;;
+
+struct Node&lt;T&gt; {
+    elem: T,
+    left: Link&lt;T&gt;,
+    right: Link&lt;T&gt;,
+}
+
+pub struct Tree&lt;T&gt; {
+    root: Link&lt;T&gt;,
+}
+
+struct NodeIterMut&lt;'a, T: 'a&gt; {
+    elem: Option&lt;&amp;'a mut T&gt;,
+    left: Option&lt;&amp;'a mut Node&lt;T&gt;&gt;,
+    right: Option&lt;&amp;'a mut Node&lt;T&gt;&gt;,
+}
+
+enum State&lt;'a, T: 'a&gt; {
+    Elem(&amp;'a mut T),
+    Node(&amp;'a mut Node&lt;T&gt;),
+}
+
+pub struct IterMut&lt;'a, T: 'a&gt;(VecDeque&lt;NodeIterMut&lt;'a, T&gt;&gt;);
+
+impl&lt;T&gt; Tree&lt;T&gt; {
+    pub fn iter_mut(&amp;mut self) -&gt; IterMut&lt;T&gt; {
+        let mut deque = VecDeque::new();
+        self.root.as_mut().map(|root| deque.push_front(root.iter_mut()));
+        IterMut(deque)
+    }
+}
+
+impl&lt;T&gt; Node&lt;T&gt; {
+    pub fn iter_mut(&amp;mut self) -&gt; NodeIterMut&lt;T&gt; {
+        NodeIterMut {
+            elem: Some(&amp;mut self.elem),
+            left: self.left.as_mut().map(|node| &amp;mut **node),
+            right: self.right.as_mut().map(|node| &amp;mut **node),
+        }
+    }
+}
+
+
+impl&lt;'a, T&gt; Iterator for NodeIterMut&lt;'a, T&gt; {
+    type Item = State&lt;'a, T&gt;;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        match self.left.take() {
+            Some(node) =&gt; Some(State::Node(node)),
+            None =&gt; match self.elem.take() {
+                Some(elem) =&gt; Some(State::Elem(elem)),
+                None =&gt; match self.right.take() {
+                    Some(node) =&gt; Some(State::Node(node)),
+                    None =&gt; None,
+                }
+            }
+        }
+    }
+}
+
+impl&lt;'a, T&gt; DoubleEndedIterator for NodeIterMut&lt;'a, T&gt; {
+    fn next_back(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        match self.right.take() {
+            Some(node) =&gt; Some(State::Node(node)),
+            None =&gt; match self.elem.take() {
+                Some(elem) =&gt; Some(State::Elem(elem)),
+                None =&gt; match self.left.take() {
+                    Some(node) =&gt; Some(State::Node(node)),
+                    None =&gt; None,
+                }
+            }
+        }
+    }
+}
+
+impl&lt;'a, T&gt; Iterator for IterMut&lt;'a, T&gt; {
+    type Item = &amp;'a mut T;
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        loop {
+            match self.0.front_mut().and_then(|node_it| node_it.next()) {
+                Some(State::Elem(elem)) =&gt; return Some(elem),
+                Some(State::Node(node)) =&gt; self.0.push_front(node.iter_mut()),
+                None =&gt; if let None = self.0.pop_front() { return None },
+            }
+        }
+    }
+}
+
+impl&lt;'a, T&gt; DoubleEndedIterator for IterMut&lt;'a, T&gt; {
+    fn next_back(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        loop {
+            match self.0.back_mut().and_then(|node_it| node_it.next_back()) {
+                Some(State::Elem(elem)) =&gt; return Some(elem),
+                Some(State::Node(node)) =&gt; self.0.push_back(node.iter_mut()),
+                None =&gt; if let None = self.0.pop_back() { return None },
+            }
+        }
+    }
+}
+</code></pre>
+<p>所有这些都是完全安全而且能稳定运行的！这已经超出了我们之前看过的简单结构体的例子：Rust能够理解你把一个可变引用安全地分解为多个部分。接下来我们可以通过Option永久地访问这个引用（或者像对于slice那样，替换为一个空的slice）。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="3.10.PhantomData（幽灵数据）.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="4.类型转换.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="3.10.PhantomData（幽灵数据）.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="4.类型转换.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

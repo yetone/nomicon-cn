@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>其他repr - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="0.简介.html">简介</a></li><li><a href="1.初识安全与非安全代码.html"><strong aria-hidden="true">1.</strong> 初识安全与非安全代码</a></li><li><ol class="section"><li><a href="1.1.安全与非安全代码的交互方式.html"><strong aria-hidden="true">1.1.</strong> 安全与非安全代码的交互方式</a></li><li><a href="1.2.非安全Rust能做什么.html"><strong aria-hidden="true">1.2.</strong> 非安全Rust能做什么</a></li><li><a href="1.3.编写非安全代码.html"><strong aria-hidden="true">1.3.</strong> 编写非安全代码</a></li></ol></li><li><a href="2.数据布局.html"><strong aria-hidden="true">2.</strong> 数据布局</a></li><li><ol class="section"><li><a href="2.1.repr(Rust).html"><strong aria-hidden="true">2.1.</strong> repr(Rust)</a></li><li><a href="2.2.类型中的奇行种.html"><strong aria-hidden="true">2.2.</strong> 类型中的奇行种</a></li><li><a href="2.3.其他repr.html" class="active"><strong aria-hidden="true">2.3.</strong> 其他repr</a></li></ol></li><li><a href="3.所有权.html"><strong aria-hidden="true">3.</strong> 所有权</a></li><li><ol class="section"><li><a href="3.1.引用.html"><strong aria-hidden="true">3.1.</strong> 引用</a></li><li><a href="3.2.别名.html"><strong aria-hidden="true">3.2.</strong> 别名</a></li><li><a href="3.3.生命周期.html"><strong aria-hidden="true">3.3.</strong> 生命周期</a></li><li><a href="3.4.生命周期的局限.html"><strong aria-hidden="true">3.4.</strong> 生命周期的局限</a></li><li><a href="3.5.省略生命周期.html"><strong aria-hidden="true">3.5.</strong> 省略生命周期</a></li><li><a href="3.6.无界生命周期.html"><strong aria-hidden="true">3.6.</strong> 无界生命周期</a></li><li><a href="3.7.高阶trait边界.html"><strong aria-hidden="true">3.7.</strong> 高阶trait边界</a></li><li><a href="3.8.子类型和变性.html"><strong aria-hidden="true">3.8.</strong> 子类型和变性</a></li><li><a href="3.9.Drop检查.html"><strong aria-hidden="true">3.9.</strong> Drop检查</a></li><li><a href="3.10.PhantomData（幽灵数据）.html"><strong aria-hidden="true">3.10.</strong> PhantomData（幽灵数据）</a></li><li><a href="3.11.分解借用.html"><strong aria-hidden="true">3.11.</strong> 分解借用</a></li></ol></li><li><a href="4.类型转换.html"><strong aria-hidden="true">4.</strong> 类型转换</a></li><li><ol class="section"><li><a href="4.1.强制类型转换.html"><strong aria-hidden="true">4.1.</strong> 强制类型转换</a></li><li><a href="4.2.点操作符.html"><strong aria-hidden="true">4.2.</strong> 点操作符</a></li><li><a href="4.3.显式类型转换.html"><strong aria-hidden="true">4.3.</strong> 显式类型转换</a></li><li><a href="4.4.变形.html"><strong aria-hidden="true">4.4.</strong> 变形</a></li></ol></li><li><a href="5.未初始化内存.html"><strong aria-hidden="true">5.</strong> 未初始化内存</a></li><li><ol class="section"><li><a href="5.1.安全方式.html"><strong aria-hidden="true">5.1.</strong> 安全方式</a></li><li><a href="5.2.Drop标志.html"><strong aria-hidden="true">5.2.</strong> Drop标志</a></li><li><a href="5.3.非安全方式.html"><strong aria-hidden="true">5.3.</strong> 非安全方式</a></li></ol></li><li><a href="6.基于所有权的资源管理.html"><strong aria-hidden="true">6.</strong> 基于所有权的资源管理</a></li><li><ol class="section"><li><a href="6.1.构造函数.html"><strong aria-hidden="true">6.1.</strong> 构造函数</a></li><li><a href="6.2.析构函数.html"><strong aria-hidden="true">6.2.</strong> 析构函数</a></li><li><a href="6.3.泄露.html"><strong aria-hidden="true">6.3.</strong> 泄露</a></li></ol></li><li><a href="7.展开.html"><strong aria-hidden="true">7.</strong> 展开</a></li><li><ol class="section"><li><a href="7.1.异常安全性.html"><strong aria-hidden="true">7.1.</strong> 异常安全性</a></li><li><a href="7.2.污染.html"><strong aria-hidden="true">7.2.</strong> 污染</a></li></ol></li><li><a href="8.并发.html"><strong aria-hidden="true">8.</strong> 并发</a></li><li><ol class="section"><li><a href="8.1.竞争.html"><strong aria-hidden="true">8.1.</strong> 竞争</a></li><li><a href="8.2.Send和Sync.html"><strong aria-hidden="true">8.2.</strong> Send和Sync</a></li><li><a href="8.3.原子操作.html"><strong aria-hidden="true">8.3.</strong> 原子操作</a></li></ol></li><li><a href="9.实现Vec.html"><strong aria-hidden="true">9.</strong> 实现Vec</a></li><li><ol class="section"><li><a href="9.1.布局.html"><strong aria-hidden="true">9.1.</strong> 布局</a></li><li><a href="9.2.内存分配.html"><strong aria-hidden="true">9.2.</strong> 内存分配</a></li><li><a href="9.3.push和pop.html"><strong aria-hidden="true">9.3.</strong> push和pop</a></li><li><a href="9.4.回收资源.html"><strong aria-hidden="true">9.4.</strong> 回收资源</a></li><li><a href="9.5.DeRef.html"><strong aria-hidden="true">9.5.</strong> DeRef</a></li><li><a href="9.6.插入和删除.html"><strong aria-hidden="true">9.6.</strong> 插入和删除</a></li><li><a href="9.7.IntoIter.html"><strong aria-hidden="true">9.7.</strong> IntoIter</a></li><li><a href="9.8.RawVec.html"><strong aria-hidden="true">9.8.</strong> RawVec</a></li><li><a href="9.9.Drain.html"><strong aria-hidden="true">9.9.</strong> Drain</a></li><li><a href="9.10.处理零尺寸类型.html"><strong aria-hidden="true">9.10.</strong> 处理零尺寸类型</a></li><li><a href="9.11.最终代码.html"><strong aria-hidden="true">9.11.</strong> 最终代码</a></li></ol></li><li><a href="10.实现Arc和Mutex.html"><strong aria-hidden="true">10.</strong> 实现Arc和Mutex</a></li><li><a href="11.FFI.html"><strong aria-hidden="true">11.</strong> FFI</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>原文链接：<a href="https://doc.rust-lang.org/nomicon/other-reprs.html">https://doc.rust-lang.org/nomicon/other-reprs.html</a></p>
+<a class="header" href="#可选的数据表达方式" id="可选的数据表达方式"><h1>可选的数据表达方式</h1></a>
+<p>Rust允许你选择其他的数据布局策略。</p>
+<a class="header" href="#reprc" id="reprc"><h2>repr(C)</h2></a>
+<p>这是最重要的一种<code>repr</code>。它的目的很简单，就是和C保持一致。数据的顺序、大小、对齐方式都和你在C或C++中见到的一摸一样。所有你需要通过FFI交互的类型都应该有<code>repr(C)</code>，因为C是程序设计领域的世界语。而且如果我们要在数据布局方面玩一些花活的话，比如把数据重新解析成另一种类型，<code>repr(C)</code>也是很有必要的。</p>
+<p>但是，一定不要忘了Rust的那几个奇行种。<code>repr(C)</code>的存在有双重作用，既为了FFI同时也为了常规的布局控制，所以它可以被应用于那些在FFI中没有意义甚至会产生错误的类型。</p>
+<ul>
+<li>尽管标准的C语言不支持大小为0的类型，但ZST的尺寸仍然是0。而且它也与C++中的空类型有着明显的不同，C++的空类型还是要占用一个字节的空间的。</li>
+<li>DST的指针（胖指针），元组，和带有成员变量的枚举都是C中没有的，因此也不是FFI安全的。</li>
+<li>如果<code>T</code>是一个<a href="https://doc.rust-lang.org/nomicon/ffi.html#the-nullable-pointer-optimization">FFI安全的非空指针</a>,那么<code>Option&lt;T&gt;</code>可以保证和<code>T</code>拥有相同的布局和ABI，当然它也会是FFI安全的。这一规则适用于<code>&amp;</code>, <code>&amp;mut</code>和函数指针等所有非空的指针。</li>
+<li>在<code>repr(C)</code>中元组结构体与结构体基本相同，唯一的不同是其成员都是未命名的。</li>
+<li>对于枚举的处理和<code>repr(u*)</code>是相同的（见下一节）。选择的类型尺寸等于目标平台上C的应用二进制接口(ABI)的默认枚举尺寸。注意C中枚举的数据布局是确定的，所以这确实是一种“最合理的假设”。不过，当目标C代码编译时加了一些特殊的编译器参数时，这一点可能就不正确了。</li>
+<li><code>repr(C)</code>和<code>repr(u*)</code>中无成员的枚举不能被赋值为一个没有对应变量的整数，尽管在C\C++中这是一种合法的行为。构建一个没有对应变量的枚举类型实例属于未定义行为。（对于存在准确匹配的值是允许正常编写和编译的）</li>
+</ul>
+<a class="header" href="#repru-repri" id="repru-repri"><h2>repr(u*), repr(i*)</h2></a>
+<p>这两个可以指定无成员枚举的大小。如果枚举变量对应的整数值对于设定的大小越界了，将产生一个编译期错误。你可以手工设置越界的元素为0以避免编译错误，不过要注意Rust是不允许一个枚举中的两个变量拥有相同的值的。</p>
+<p>“无成员枚举”的意思是枚举的每一个变量里都不关联数据。不指定<code>repr(u*)</code>或<code>repr(i*)</code>的无成员枚举依然是一个Rust的合法原生类型，它们都没有固定的ABI表示方法。给它们指定<code>repr</code>使其有了固定的类型大小，方便在ABI中使用。</p>
+<p>Rust中所有有成员的枚举都没有确定的ABI表示方式（即使关联的数据只是<code>PhantomData</code>或者零尺寸类型的数据）。</p>
+<p>为枚举显式指定<code>repr</code>后空指针优化将不再起作用。</p>
+<p>这些<code>repr</code>对于结构体无效。</p>
+<a class="header" href="#reprpacked" id="reprpacked"><h2>repr(packed)</h2></a>
+<p><code>repr(packed)</code>强制Rust不填充空数据，各个类型的数据紧密排列。这样有助于提升内存的使用效率，但很可能会导致其他的副作用。</p>
+<p>尤其是大部分平台都强烈建议数据对齐。这意味着加载未对齐的数据会很低效（x86)，甚至是错误的(一些ARM芯片)。像直接加载或存储打包的(packed)成员变量这种简单的场景，编译器可能可以用shift和mask等方式隐藏对齐问题。但是如果是使用一个打包的变量的引用，编译器很可能没办法避免未对齐加载问题。</p>
+<p><a href="https://github.com/rust-lang/rust/issues/27060"><strong>在Rust 1.0中这会导致未定义行为</strong></a></p>
+<p><code>repr(packed)</code>不应该随便使用。只有在你有一些极端的需求的情况下才该用它。</p>
+<p>这个repr是<code>repr(C)</code>和<code>repr(Rust)</code>的修饰器。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="2.2.类型中的奇行种.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="3.所有权.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="2.2.类型中的奇行种.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="3.所有权.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

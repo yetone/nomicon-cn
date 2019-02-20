@@ -1,0 +1,624 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>FFI - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="0.简介.html">简介</a></li><li><a href="1.初识安全与非安全代码.html"><strong aria-hidden="true">1.</strong> 初识安全与非安全代码</a></li><li><ol class="section"><li><a href="1.1.安全与非安全代码的交互方式.html"><strong aria-hidden="true">1.1.</strong> 安全与非安全代码的交互方式</a></li><li><a href="1.2.非安全Rust能做什么.html"><strong aria-hidden="true">1.2.</strong> 非安全Rust能做什么</a></li><li><a href="1.3.编写非安全代码.html"><strong aria-hidden="true">1.3.</strong> 编写非安全代码</a></li></ol></li><li><a href="2.数据布局.html"><strong aria-hidden="true">2.</strong> 数据布局</a></li><li><ol class="section"><li><a href="2.1.repr(Rust).html"><strong aria-hidden="true">2.1.</strong> repr(Rust)</a></li><li><a href="2.2.类型中的奇行种.html"><strong aria-hidden="true">2.2.</strong> 类型中的奇行种</a></li><li><a href="2.3.其他repr.html"><strong aria-hidden="true">2.3.</strong> 其他repr</a></li></ol></li><li><a href="3.所有权.html"><strong aria-hidden="true">3.</strong> 所有权</a></li><li><ol class="section"><li><a href="3.1.引用.html"><strong aria-hidden="true">3.1.</strong> 引用</a></li><li><a href="3.2.别名.html"><strong aria-hidden="true">3.2.</strong> 别名</a></li><li><a href="3.3.生命周期.html"><strong aria-hidden="true">3.3.</strong> 生命周期</a></li><li><a href="3.4.生命周期的局限.html"><strong aria-hidden="true">3.4.</strong> 生命周期的局限</a></li><li><a href="3.5.省略生命周期.html"><strong aria-hidden="true">3.5.</strong> 省略生命周期</a></li><li><a href="3.6.无界生命周期.html"><strong aria-hidden="true">3.6.</strong> 无界生命周期</a></li><li><a href="3.7.高阶trait边界.html"><strong aria-hidden="true">3.7.</strong> 高阶trait边界</a></li><li><a href="3.8.子类型和变性.html"><strong aria-hidden="true">3.8.</strong> 子类型和变性</a></li><li><a href="3.9.Drop检查.html"><strong aria-hidden="true">3.9.</strong> Drop检查</a></li><li><a href="3.10.PhantomData（幽灵数据）.html"><strong aria-hidden="true">3.10.</strong> PhantomData（幽灵数据）</a></li><li><a href="3.11.分解借用.html"><strong aria-hidden="true">3.11.</strong> 分解借用</a></li></ol></li><li><a href="4.类型转换.html"><strong aria-hidden="true">4.</strong> 类型转换</a></li><li><ol class="section"><li><a href="4.1.强制类型转换.html"><strong aria-hidden="true">4.1.</strong> 强制类型转换</a></li><li><a href="4.2.点操作符.html"><strong aria-hidden="true">4.2.</strong> 点操作符</a></li><li><a href="4.3.显式类型转换.html"><strong aria-hidden="true">4.3.</strong> 显式类型转换</a></li><li><a href="4.4.变形.html"><strong aria-hidden="true">4.4.</strong> 变形</a></li></ol></li><li><a href="5.未初始化内存.html"><strong aria-hidden="true">5.</strong> 未初始化内存</a></li><li><ol class="section"><li><a href="5.1.安全方式.html"><strong aria-hidden="true">5.1.</strong> 安全方式</a></li><li><a href="5.2.Drop标志.html"><strong aria-hidden="true">5.2.</strong> Drop标志</a></li><li><a href="5.3.非安全方式.html"><strong aria-hidden="true">5.3.</strong> 非安全方式</a></li></ol></li><li><a href="6.基于所有权的资源管理.html"><strong aria-hidden="true">6.</strong> 基于所有权的资源管理</a></li><li><ol class="section"><li><a href="6.1.构造函数.html"><strong aria-hidden="true">6.1.</strong> 构造函数</a></li><li><a href="6.2.析构函数.html"><strong aria-hidden="true">6.2.</strong> 析构函数</a></li><li><a href="6.3.泄露.html"><strong aria-hidden="true">6.3.</strong> 泄露</a></li></ol></li><li><a href="7.展开.html"><strong aria-hidden="true">7.</strong> 展开</a></li><li><ol class="section"><li><a href="7.1.异常安全性.html"><strong aria-hidden="true">7.1.</strong> 异常安全性</a></li><li><a href="7.2.污染.html"><strong aria-hidden="true">7.2.</strong> 污染</a></li></ol></li><li><a href="8.并发.html"><strong aria-hidden="true">8.</strong> 并发</a></li><li><ol class="section"><li><a href="8.1.竞争.html"><strong aria-hidden="true">8.1.</strong> 竞争</a></li><li><a href="8.2.Send和Sync.html"><strong aria-hidden="true">8.2.</strong> Send和Sync</a></li><li><a href="8.3.原子操作.html"><strong aria-hidden="true">8.3.</strong> 原子操作</a></li></ol></li><li><a href="9.实现Vec.html"><strong aria-hidden="true">9.</strong> 实现Vec</a></li><li><ol class="section"><li><a href="9.1.布局.html"><strong aria-hidden="true">9.1.</strong> 布局</a></li><li><a href="9.2.内存分配.html"><strong aria-hidden="true">9.2.</strong> 内存分配</a></li><li><a href="9.3.push和pop.html"><strong aria-hidden="true">9.3.</strong> push和pop</a></li><li><a href="9.4.回收资源.html"><strong aria-hidden="true">9.4.</strong> 回收资源</a></li><li><a href="9.5.DeRef.html"><strong aria-hidden="true">9.5.</strong> DeRef</a></li><li><a href="9.6.插入和删除.html"><strong aria-hidden="true">9.6.</strong> 插入和删除</a></li><li><a href="9.7.IntoIter.html"><strong aria-hidden="true">9.7.</strong> IntoIter</a></li><li><a href="9.8.RawVec.html"><strong aria-hidden="true">9.8.</strong> RawVec</a></li><li><a href="9.9.Drain.html"><strong aria-hidden="true">9.9.</strong> Drain</a></li><li><a href="9.10.处理零尺寸类型.html"><strong aria-hidden="true">9.10.</strong> 处理零尺寸类型</a></li><li><a href="9.11.最终代码.html"><strong aria-hidden="true">9.11.</strong> 最终代码</a></li></ol></li><li><a href="10.实现Arc和Mutex.html"><strong aria-hidden="true">10.</strong> 实现Arc和Mutex</a></li><li><a href="11.FFI.html" class="active"><strong aria-hidden="true">11.</strong> FFI</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title"></h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>原文链接：<a href="https://doc.rust-lang.org/nomicon/ffi.html">https://doc.rust-lang.org/nomicon/ffi.html</a></p>
+<a class="header" href="#外部函数接口ffi" id="外部函数接口ffi"><h1>外部函数接口(FFI)</h1></a>
+<a class="header" href="#介绍" id="介绍"><h2>介绍</h2></a>
+<p>这个教程会使用<a href="https://github.com/google/snappy">snappy</a>压缩/解压缩库来介绍外部代码绑定的编写方法。Rust目前还不能直接调用C++的库，但是snappy有C的接口（文档在<code>snappy-c.h</code>中）。</p>
+<a class="header" href="#关于libc的说明" id="关于libc的说明"><h3>关于libc的说明</h3></a>
+<p>接下来很多的例子会使用<a href="https://crates.io/crates/libc"><code>libc</code> crate</a>，它为我们提供了很多C类型的定义。如果你要亲自尝试一下这些例子的话，你需要把<code>libc</code>添加到你的<code>Cargo.toml</code>:</p>
+<pre><code class="language-Toml">[dependencies]
+libc = &quot;0.2.0&quot;
+</code></pre>
+<p>然后在你的crate的根文件插入一句<code>extern crate libc;</code></p>
+<a class="header" href="#调用外部函数" id="调用外部函数"><h3>调用外部函数</h3></a>
+<p>下面是一个调用外部函数的小例子，安装了snappy才能编译成功。</p>
+<pre><code class="language-Rust">extern crate libc;
+use libc::size_t;
+
+#[link(name = &quot;snappy&quot;)]
+extern {
+    fn snappy_mx_compressed_length(source_length: size_t) -&gt; size_t;
+}
+
+fn main() {
+    let x = unsafe { snappy_max_compressed_length(100) };
+    println!(&quot;max compressed length of a 100 byte buffer: {}&quot;, x);
+}
+</code></pre>
+<p><code>extern</code>代码块中是外部库的函数签名的列表，这个例子中使用的是平台相关的C的ABI。<code>#[link(...)]</code>属性用来构建一个链接snappy库的链接器，以便解析库中的符号(symbol)。</p>
+<p>外部函数都被认为是不安全的，所以对它们的调用必须包装在<code>unsafe {}</code>中，也就是向编译器承诺块中的代码都是安全的。C的库经常暴露非线程安全的接口，而且几乎所有的接受指针参数的函数都是不合法的，因为指针可能是悬垂指针，而裸指针不符合Rust的内存安全模型。</p>
+<p>在声明外部函数的参数类型时，Rust编译器不能检查声明的正确性，所以我们需要自己保证它是正确的，这也是运行期正确绑定的条件之一。</p>
+<p><code>extern</code>块还可以继续扩展，包含所有的snappy API：</p>
+<pre><code class="language-Rust">extern crate libc;
+use libc::{c_int, size_t};
+
+#[link(name = &quot;snappy&quot;)]
+extern {
+    fn snappy_compress(input: *const u8,
+                       input_length: size_t,
+                       compressed: *mut u8,
+                       compressed_length: *mut size_t) -&gt; c_int;
+    fn snappy_uncompress(compressed: *const u8,
+                         compressed_length: size_t,
+                         uncompressed: *mut u8,
+                         uncompressed_length: *mut size_t) -&gt; c_int;
+    fn snappy_max_compressed_length(source_length: size_t) -&gt; size_t;
+    fn snappy_uncompressed_length(compressed: *const u8,
+                                  compressed_length: size_t,
+                                  result: *mut size_t) -&gt; c_int;
+    fn snappy_validate_compressed_buffer(compressed: *const u8,
+                                         compressed_length: size_t) -&gt; c_int;
+}
+</code></pre>
+<a class="header" href="#创建安全接口" id="创建安全接口"><h2>创建安全接口</h2></a>
+<p>原生的C API进行封装，以保证内存安全，还有使用vector等高级概念。库可以选择只暴露安全的、高级的接口，并隐藏非安全的内部细节。</p>
+<p>我们使用<code>slice::raw</code>模块封装接受内存块的函数，这个模块会把Rust的vector转换为内存的指针。Rust的vector是一块连续的内存。它的长度是当前包含的元素的数量，容量是分配内存可存储的元素的总数。长度是小于等于容量的。</p>
+<pre><code class="language-Rust">pub fn validate_compressed_buffer(src: &amp;[u8]) -&gt; bool {
+    unsafe {
+        snappy_validate_compressed_buffer(src.as_ptr(), src.len() as size_t) == 0
+    }
+}
+</code></pre>
+<p>上方的<code>validate_compressed_buffer</code>包装器用到了<code>unsafe</code>代码块，但是函数签名里没有<code>unsafe</code>关键字，这说明它保证函数调用对所有的输入都是安全的。</p>
+<p><code>snappy_compress</code>和<code>snappy_uncompress</code>函数更复杂一些，因为它们需要分配一块空间储存输出的结果。</p>
+<p><code>snappy_max_compressed_length</code>函数可以用来分配一段最大容积内的vector，以保存输出的结果。这个vector可以传递给<code>snappy_compress</code>函数作为输出参数。还会传递一个输出参数获取压缩后的真实长度，以便设置返回值的长度。</p>
+<pre><code class="language-Rust">pub fn compress(src: &amp;[u8]) -&gt; Vec&lt;u8&gt; {
+    unsafe {
+        let srclen = src.len() as size_t;
+        let psrc = src.as_ptr();
+
+        let mut dstlen = snappy_max_compressed_length(srclen);
+        let mut dst = Vec::with_capacity(dstlen as usize);
+        let pdst = dst.as_mut_ptr();
+
+        snappy_compress(psrc, srclen, pdst, &amp;mut dstlen);
+        dst.set_len(dstlen as usize);
+        dst
+    }
+}
+</code></pre>
+<p>解压缩也是类似的，因为snappy的压缩格式中保存了未压缩时的大小，函数<code>snappy_uncompressed_length</code>可以获取需要的缓存区的尺寸。</p>
+<pre><code class="language-Rust">pub fn uncompress(src: &amp;[u8]) -&gt; Option&lt;Vec&lt;u8&gt;&gt; {
+    unsafe {
+        let srclen = src.len() as size_t;
+        let psrc = src.as_ptr();
+
+        let mut dstlen: size_t = 0;
+        snappy_uncompressed_length(psrc, srclen, &amp;mut dstlen);
+
+        let mut dst = Vec::with_capacity(dstlen as usize);
+        let pdst = dst.as_mut_ptr();
+
+        if snappy_uncompress(psrc, srclen, pdst, &amp;mut dstlen) == 0 {
+            dst.set_len(dstlen as usize);
+            Some(dst)
+        } else {
+            None // SNAPPY_INVALID_INPUT
+        }
+    }
+}
+</code></pre>
+<p>接下来，我们添加一些测试用例来展示如何使用它们。</p>
+<pre><code class="language-Rust">#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn valid() {
+        let d = vec![0xde, 0xad, 0xd0, 0x0d];
+        let c: &amp;[u8] = &amp;compress(&amp;d);
+        assert!(validate_compressed_buffer(c));
+        assert!(uncompress(c) == Some(d));
+    }
+
+    #[test]
+    fn invalid() {
+        let d = vec![0, 0, 0, 0];
+        assert!(!validate_compressed_buffer(&amp;d));
+        assert!(uncompress(&amp;d).is_none());
+    }
+
+    #[test]
+    fn empty() {
+        let d = vec![];
+        assert!(!validate_compressed_buffer(&amp;d));
+        assert!(uncompress(&amp;d).is_none());
+        let c = compress(&amp;d);
+        assert!(validate_compressed_buffer(&amp;c));
+        assert!(uncompress(&amp;c) == Some(d));
+    }
+}
+</code></pre>
+<a class="header" href="#析构函数" id="析构函数"><h2>析构函数</h2></a>
+<p>外部库经常把资源的所有权返还给调用代码。如果是这样，我们必须用Rust的析构函数保证所有的资源都被释放了（特别是在panic的情况下）。</p>
+<p>更多关于析构函数的内容，请见<a href="https://doc.rust-lang.org/std/ops/trait.Drop.html">Drop trait</a>。</p>
+<a class="header" href="#c代码到rust函数的回调" id="c代码到rust函数的回调"><h2>C代码到Rust函数的回调</h2></a>
+<p>一些外部库需要用到回调向调用者报告当前状态或者中间数据。我们是可以把Rust写的函数传递给外部库的。要求是回调函数必须标为<code>extern</code>并遵守正确的调用规范，以保证C代码可以调用它。</p>
+<p>然后回调函数会通过注册调用传递给C的库，并在外部库中被触发。</p>
+<p>下面是一个简单的例子。</p>
+<p>Rust代码：</p>
+<pre><code class="language-Rust">extern fn callback(a: i32) {
+    println!(&quot;I'm called from C with value {0}&quot;, a);
+}
+
+#[link(name = &quot;extlib&quot;)]
+extern {
+   fn register_callback(cb: extern fn(i32)) -&gt; i32;
+   fn trigger_callback();
+}
+
+fn main() {
+    unsafe {
+        register_callback(callback);
+        trigger_callback(); // 触发回调
+    }
+}
+</code></pre>
+<p>C代码：</p>
+<pre><code class="language-C">typedef void (*rust_callback)(int32_t);
+rust_callback cb;
+
+int32_t register_callback(rust_callback callback) {
+    cb = callback;
+    return 1;
+}
+
+void trigger_callback() {
+  cb(7); // Will call callback(7) in Rust.
+}
+</code></pre>
+<p>这个例子中，Rust的<code>main()</code>要调用C的<code>trigger_callback()</code>，而这个函数会反过来调用Rust中的<code>callback()</code>。</p>
+<a class="header" href="#将rust对象作为回调" id="将rust对象作为回调"><h3>将Rust对象作为回调</h3></a>
+<p>之前的例子演示了C代码如何调用全局函数。但是很多情况下回调也可能是一个Rust对象，比如说封装了某个C的结构体的Rust对象。</p>
+<p>要实现这一点，我们可以传递一个指向这个对象的裸指针给C的库。C的库接下来可以将指针转换为Rust的对象。这样回调函数就可以非安全地访问相应的Rust对象了。</p>
+<pre><code class="language-Rust">#[repr(C)]
+struct RustObject {
+    a: i32,
+    // 其他成员……
+}
+
+extern &quot;C&quot; fn callback(target: *mut RustObject, a: i32) {
+    println!(&quot;I'm called from C with value {0}&quot;, a);
+    unsafe {
+        // 用回调函数接收的值更新RustObject的值：
+        (*target).a = a;
+    }
+}
+
+#[link(name = &quot;extlib&quot;)]
+extern {
+   fn register_callback(target: *mut RustObject,
+                        cb: extern fn(*mut RustObject, i32)) -&gt; i32;
+   fn trigger_callback();
+}
+
+fn main() {
+    // 创建回调用到的对象：
+    let mut rust_object = Box::new(RustObject { a: 5 });
+
+    unsafe {
+        register_callback(&amp;mut *rust_object, callback);
+        trigger_callback();
+    }
+}
+</code></pre>
+<p>C代码：</p>
+<pre><code class="language-C">typedef void (*rust_callback)(void*, int32_t);
+void* cb_target;
+rust_callback cb;
+
+int32_t register_callback(void* callback_target, rust_callback callback) {
+    cb_target = callback_target;
+    cb = callback;
+    return 1;
+}
+
+void trigger_callback() {
+  cb(cb_target, 7); // 调用Rust的callback(&amp;rustObject, 7)
+}
+</code></pre>
+<a class="header" href="#异步回调" id="异步回调"><h3>异步回调</h3></a>
+<p>上面给出的例子里，回调都是外部C库的直接的函数调用。当前线程的控制权从Rust转移到C再转移回Rust，不过最终回调都是在调用触发回调的函数的线程里执行的。</p>
+<p>如果外部库启动了自己的线程，并在那个线程里调用回调函数，情况就变得复杂了。这时再访问回调中的Rust数据结构是非常不安全的，必须使用正常地同步机制。除了Mutex等传统的同步机制，还有另一个选项就是使用channel（在<code>std::sync::mpsc</code>中）将数据从触发回调的C线程传送给一个Rust线程。</p>
+<p>如果一个异步回调使用了一个Rust地址空间里的对象，一定要注意，在这个对象销毁之后C的库不能再调用任何的回调。我们可以在对象的析构函数里注销回调，并且重新设计库确保毁掉注销后就不会被调用了。</p>
+<a class="header" href="#链接" id="链接"><h2>链接</h2></a>
+<p><code>extern</code>代码块上的<code>link</code>属性用于指导rustc如何链接到一个本地的库。现在<code>link</code>属性有两种可用的形式：</p>
+<ul>
+<li><code>#[link(name = &quot;foo&quot;)]</code></li>
+<li><code>#[link(name = &quot;foo&quot;, kind = &quot;bar&quot;)]</code></li>
+</ul>
+<p>两种形式中，<code>foo</code>都是我们要链接的本地库的名字。而第二种形式中的<code>bar</code>是要链接的本地库的类型。目前有三种已知的本地库类型：</p>
+<ul>
+<li>动态 - <code>#[link(name = &quot;readline&quot;)]</code></li>
+<li>静态 - <code>#[link(name = &quot;my_build_dependency&quot;, kind = &quot;static&quot;)]</code></li>
+<li>框架 - <code>#[link(name = &quot;CoreFundation&quot;, kind = &quot;framework&quot;)]</code></li>
+</ul>
+<p>注意，框架只适用于MacOS平台。</p>
+<p>不同的<code>kind</code>表明本地库以不同的方式参与链接。从链接器的角度看，Rust编译器产生两种输出结果：部分结果(rlib/staticlib)和最终结果(dylib/binary)。本地动态库和框架依赖可以被最终结果使用，而静态库则不会，因为静态库是直接集成在接下来的输出里的。</p>
+<p>举几个这个模型用法的例子：</p>
+<ul>
+<li>
+<p>本地构建依赖。有时候编写Rust代码需要一些C/C++作为补充，但是把C/C++代码以一个库的形式发布却不容易。这种情况下，代码应该包装在<code>libfoo.a</code>中，然后Rust的crate会声明一个依赖<code>#[link(name = &quot;foo&quot;, kind = &quot;static&quot;)]</code>。
+不管crate最终以哪种形式输出，本地静态库都会被包含在输出中，这表明发布静态库并不必要。</p>
+</li>
+<li>
+<p>普通动态库。通用的系统库（比如<code>readline</code>）在许多系统中都支持，而我们经常遇到找不到库的本地备份的的情况。如果这样的依赖被包含在Rust的crate中，部分结果（比如rlib）不会链接到这个库中。但是如果rlib被最终结果包含了，本地库也会被链接。</p>
+</li>
+</ul>
+<p>在MacOS中，框架和动态库具有相同的语义。</p>
+<a class="header" href="#非安全代码块" id="非安全代码块"><h2>非安全代码块</h2></a>
+<p>有一些操作，比如解引用裸指针、或者调用被标为unsafe的函数，它们只能存在于非安全代码块中。非安全代码块隔离了非安全性，并向编译器承诺非安全性不会影响到块以外的代码。</p>
+<p>非安全函数则不同，它们声明非安全性一定会影响到函数之外。一个非安全函数写法如下：</p>
+<pre><code class="language-Rust">unsafe fn kaboom(ptr: *const i32) -&gt; i32 { *ptr }
+</code></pre>
+<p>这个函数只能在<code>unsafe</code>代码块或者另外一个<code>unsafe</code>函数里被调用。</p>
+<a class="header" href="#访问外部全局变量" id="访问外部全局变量"><h2>访问外部全局变量</h2></a>
+<p>外部API经常暴露一些全局变量，用于记录全局状态等。为了访问这些变量，你需要在<code>extern</code>块中用<code>static</code>关键字声明它们：</p>
+<pre><code class="language-Rust">extern crate libc;
+
+#[link(name = &quot;readline&quot;)]
+extern {
+    static rl_readline_version: libc::c_int;
+}
+
+fn main() {
+    println!(&quot;You have readline version {} installed.&quot;,
+             unsafe { rl_readline_version as i32 });
+}
+</code></pre>
+<p>有时也可能需要通过外部的接口修改全局状态。如果要这么做，静态变量还要添加<code>mut</code>，让我们可以修改它们。</p>
+<pre><code class="language-Rust">extern crate libc;
+
+use std::ffi::CString;
+use std::ptr;
+
+#[link(name = &quot;readline&quot;)]
+extern {
+    static mut rl_prompt: *const libc::c_char;
+}
+
+fn main() {
+    let prompt = CString::new(&quot;[my-awesome-shell] $&quot;).unwrap();
+    unsafe {
+        rl_prompt = prompt.as_ptr();
+
+        println!(&quot;{:?}&quot;, rl_prompt);
+
+        rl_prompt = ptr::null();
+    }
+}
+</code></pre>
+<p>注意，所有和<code>static mut</code>的操作都是非安全的，不管是读还是写。处理全局可变状态的时候一定要格外的小心。</p>
+<a class="header" href="#外部调用规范" id="外部调用规范"><h2>外部调用规范</h2></a>
+<p>大多数外部代码都暴露C的ABI，而Rust默认根据平台相关的C的调用规范调用外部函数。还有一些外部函数使用其他的规范，最典型的就是WindowsAPI。Rust也有方法告诉编译器使用哪种规范：</p>
+<pre><code class="language-Rust">extern crate libc;
+
+#[cfg(all(target_os = &quot;win32&quot;, target_arch = &quot;x86&quot;))]
+#[link(name = &quot;kernel32&quot;)]
+#[allow(non_snake_case)]
+extern &quot;stdcall&quot; {
+    fn SetEnvironmentVariableA(n: *const u8, v: *const u8) -&gt; libc::c_int;
+}
+</code></pre>
+<p>这段代码作用于整个<code>extern</code>代码块。支持的ABI包括：</p>
+<ul>
+<li><code>stdcall</code></li>
+<li><code>appcs</code></li>
+<li><code>cdecl</code></li>
+<li><code>fastcall</code></li>
+<li><code>vectorcall</code> 这个目前被<code>abi_vectorcall</code>隐藏着，不允许修改。</li>
+<li><code>Rust</code></li>
+<li><code>rust-intrinsic</code></li>
+<li><code>system</code></li>
+<li><code>C</code></li>
+<li><code>win64</code></li>
+<li><code>sysv64</code></li>
+</ul>
+<p>列表中所有的abi都是自解释的，但是<code>system</code>可能会显得有些奇怪。它的意思是选择一个合适的与目标库通信的ABI。比如，在win32的x86架构上，它实际使用的是<code>stdcall</code>。而在x86_64上，Windows使用<code>C</code>调用规范，所以它实际使用的是<code>C</code>。这意味着在我们之前的例子中，我们可以使用<code>extern &quot;system&quot; { ... }</code>为所有的Windows系统定义块，而不仅仅是x86的平台。</p>
+<a class="header" href="#与外部代码互用性" id="与外部代码互用性"><h2>与外部代码互用性</h2></a>
+<p>只有给一个结构体指定了<code>#[repr(C)]</code>，Rust才保证结构体的布局与平台的C的表示方法相兼容。<code>#[repr(C, packed)]</code>可以让结构体成员之间无填充。<code>#[repr(C)]</code>也可以作用于枚举类型。</p>
+<p>Rust的<code>Box&lt;T&gt;</code>用一个非空的指针指向它包含的对象。但是，这些指针不能手工创建，而是要由内部分配器去管理。引用可以安全地等同于非空指针。不过，违背借用检查和可变性规则就不能保证是安全的了，所以在需要使用指针的地方我们尽量使用裸指针，因为编译器不会对它做过多的限制。</p>
+<p>Vector和String拥有相同的内存布局，而且<code>vec</code>和<code>str</code>模块里也有一些与C API相关的工具。但是，字符串不是以<code>\0</code>结尾的。如果你想要一个与C兼容的Null结尾的字符串，你应该使用<code>std::ffi</code>模块中的<code>CString</code>类型。</p>
+<p>[crate.io的<code>libc</code> crate]<code>(https://crates.io/crates/libc)在</code>libc<code>模块中包含了C标准库的类型别名和函数定义，而Rust默认链接</code>libc<code>和</code>libm`。</p>
+<a class="header" href="#可变函数" id="可变函数"><h2>可变函数</h2></a>
+<p>在C中，函数可以是“可变的”，也就是说可以接收可变数量的参数。在Rust中可以在外部函数声明的参数类表中插入<code>...</code>实现这一点：</p>
+<pre><code class="language-Rust">extern {
+    fn foo(x: i32, ...);
+}
+
+fn main() {
+    unsafe {
+        foo(10, 20, 30, 40, 50);
+    }
+}
+</code></pre>
+<p>普通的Rust函数不能是可变的：</p>
+<pre><code class="language-Rust">// 这段不能通过编译
+fn foo(x: i32, ...) { }
+</code></pre>
+<a class="header" href="#空指针优化" id="空指针优化"><h2>空指针优化</h2></a>
+<p>一些Rust类型被定义为永不为<code>null</code>，包括引用（<code>&amp;T</code>、<code>&amp;mut T</code>）、<code>Box&lt;T&gt;</code>、以及函数指针（<code>extern &quot;abi&quot; fn()</code>）。可是在使用C的接口时，指针是经常可能为<code>null</code>的。看起来似乎需要用到<code>transmute</code>或者非安全代码来处理各种混乱的类型转换。但是，Rust其实提供了另外的方法。</p>
+<p>一些特殊情况中，<code>enum</code>很适合做空指针优化，只要它包含两个变量，其中一个不包含数据，而另外一个包含一个非空类型的成员。这样就不需要额外的空间做判断了：给那个包含非空成员的变量传递一个<code>null</code>，用它来表示另外那个空的变量。这种行为虽然被叫做“优化”，但是和其他的优化不同，它只适用于合适的类型。</p>
+<p>最常见的受益于空指针优化的类型是<code>Option&lt;T&gt;</code>，其中<code>None</code>可以用<code>null</code>表示。所以<code>Option&lt;extern &quot;C&quot; fn(c_int) - &gt; c_int&gt;</code>就很适合表示一个使用C ABI的可为空的函数指针（对应于C的<code>int (*)(int)</code>）。</p>
+<p>下面是一个刻意造出来的例子。假设一些C的库提供了注册回调的方法，然后在特定的条件下调用回调。回调接受一个函数指针和一个整数，然后用这个整数作为参数调用指针指向的函数。所以我们会向FFI边界的两侧都传递函数指针。</p>
+<pre><code class="language-Rust">extern crate libc;
+use libc::c_int;
+
+extern &quot;C&quot; {
+    // 注册回调。
+    fn register(cb: Option&lt;extern &quot;C&quot; fn(Option&lt;extern &quot;C&quot; fn(c_int) -&gt; c_int&gt;, c_int) -&gt; c_int&gt;);
+}
+
+// 这个函数其实没什么实际的用处。它从C代码接受一个函数指针和一个整数，
+// 用整数做参数调用指针指向的函数，并返回函数的返回值。
+// 如果没有指定函数，那默认就返回整数的平方。
+extern &quot;C&quot; fn apply(process: Option&lt;extern &quot;C&quot; fn(c_int) -&gt; c_int&gt;, int: c_int) -&gt; c_int {
+    match process {
+        Some(f) =&gt; f(int),
+        None    =&gt; int * int
+    }
+}
+
+fn main() {
+    unsafe {
+        register(Some(apply));
+    }
+}
+</code></pre>
+<p>C的代码是像这样的：</p>
+<pre><code class="language-C">void register(void (*f)(void (*)(int), int)) {
+    ...
+}
+</code></pre>
+<p>看，并不需要<code>transmute</code>！</p>
+<a class="header" href="#c调用rust" id="c调用rust"><h2>C调用Rust</h2></a>
+<p>你可能想要用某种方式编译Rust，让C可以直接调用它。这件事很简单，只需要做少数的处理：</p>
+<pre><code class="language-Rust">#[no_mangle]
+pub extern fn hello_rust() -&gt; *const u8 {
+    &quot;Hello, world!\0&quot;.as_ptr()
+}
+</code></pre>
+<p><code>extern</code>让它对应的函数符合C的调用规范，在上面的<a href="https://doc.rust-lang.org/nomicon/ffi.html#foreign-calling-conventions">外部调用规范</a>一节有详细讨论。<code>no_mangle</code>属性关闭Rust的name mangling，让它更方便被链接。</p>
+<a class="header" href="#ffi和panic" id="ffi和panic"><h2>FFI和panic</h2></a>
+<p>使用FFI的时候要格外注意<code>panic!</code>。跨越FFI边界的<code>panic!</code>属于未定义行为。如果你写的代码可能会panic，你应该使用<code>catch_unwind</code>在一个闭包里执行它：</p>
+<pre><code class="language-Rust">use std::panic::catch_unwind;
+
+#[no_mangle]
+pub extern fn oh_no() -&gt; i32 {
+    let result = catch_unwind(|| {
+        panic!(&quot;Oops!&quot;);
+    });
+    match result {
+        Ok(_) =&gt; 0,
+        Err(_) =&gt; 1,
+    }
+}
+
+fn main() {}
+</code></pre>
+<p>请注意，<code>catch_unwind</code>只能捕获可展开的panic，不能捕获abort。更多的信息请参考<code>catch_unwind</code>的文档。</p>
+<a class="header" href="#表示不透明结构体" id="表示不透明结构体"><h2>表示不透明结构体</h2></a>
+<p>有时候，C的库要提供一个指针指向某个东西，但又不想让你知道那个东西的内部细节。最简单的方式是使用<code>void *</code>：</p>
+<pre><code class="language-C">void foo(void *arg);
+void bar(void *arg);
+</code></pre>
+<p>在Rust中我们可以用<code>c_void</code>类型表示它：</p>
+<pre><code class="language-Rust">extern crate libc;
+
+extern &quot;C&quot; {
+    pub fn foo(arg: *mut libc::c_void);
+    pub fn bar(arg: *mut libc::c_void);
+}
+</code></pre>
+<p>这是一个完全合法的方法。不过，我们其实还可以做得更好。要解决这个问题，一些C库可能会创建一个结构体，可结构体的细节和内存布局是私有的。这样提高了类型的安全性。这种结构体被称为”不透明“的。下面是一个C的例子：</p>
+<pre><code class="language-C">struct Foo; /* Foo是一个接口，但它的内容不属于公共接口 */
+struct Bar;
+void foo(struct Foo *arg);
+void bar(struct Bar *arg);
+</code></pre>
+<p>在Rust中，我们可以使用枚举来创建我们自己的不透明类型：</p>
+<pre><code class="language-Rust">#[repr(C)] pub struct Foo { _private: [u8; 0] }
+#[repr(C)] pub struct Bar { _private: [u8; 0] }
+
+extern &quot;C&quot; {
+    pub fn foo(arg: *mut Foo);
+    pub fn bar(arg: *mut Bar);
+}
+# fn main() {}
+</code></pre>
+<p>给结构体一个私有成员而不给它构造函数，这样我们就创建了一个不透明的类型，而且我们不能在模块之外实例化它。（没有成员的结构体可以在任何地方实例化）因为我们希望在FFI中使用这个类型，我们必须加上<code>#[repr(C)]</code>。还为了避免在FFI中使用<code>()</code>的时候出现警告，我们用了一个空数组。空数组和空类型的行为一致，同时它还是FFI兼容的。</p>
+<p>但因为<code>Foo</code>和<code>Bar</code>是不同的类型，我们需要保证两者之间的类型安全性，所以我们不能把<code>Foo</code>的指针传递给<code>bar()</code>。</p>
+<p>注意，用空枚举作为FFI类型是一个很不好的设计。编译器将空枚举视为不可达的空类型，所以使用<code>&amp;Empty</code>类型的值是很危险的，这可能导致很多程序中的问题（触发未定义行为）。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="10.实现Arc和Mutex.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="10.实现Arc和Mutex.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
